@@ -56,18 +56,18 @@ namespace UnitTestBrowserStack
             
             //2 - Vérification de l'url
             Assert.AreEqual(_driver.Url, "http://www.softfluent.fr/", "Url is not the same");
-            
-            //3 - Ensuite clic sur le lien « Offres & outils » : 
+
+            //3 - Ensuite clic sur le lien « Offres » : 
             _driver.FindElement(By.XPath("//a[contains(@href, 'offres')]")).Click();
             WaitForPageToLoad(_driver);
 
-            //4 - On sélectionne ensuite l’outil: RowShare
-            _driver.FindElement(By.XPath("//a[contains(@href, 'offres/rowshare')]")).Click();
+            //4 - On sélectionne ensuite Offre : developpement 
+            _driver.FindElement(By.XPath("//a[contains(@href, 'developpement')]")).Click();
             WaitForPageToLoad(_driver);
 
-            //5 - On va chercher dans la page RowShare : L’organisation à plusieurs devient simple !
-            var text = _driver.FindElement(By.XPath("//div[@id='tools']/div/div/div/h2")).Text;
-            Assert.AreEqual(text, "L’organisation à plusieurs devient simple !", "Value is not the same.");
+            //5 - On va chercher dans la page RowShare : Votre SSII Microsoft Gold Partner en développement .NET 
+            var text = _driver.FindElement(By.XPath("//div[@id='offers']/div/div/div/h1")).Text;
+            Assert.AreEqual(text, "Votre SSII Microsoft Gold Partner en développement .NET", "Value is not the same.");
         }
 
         public  void WaitForPageToLoad(IWebDriver driver)
